@@ -27,10 +27,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    #new
+    # new
     'sponsorhub',
-    'ideas',
-    'accounts',
+    # 'ideas',
+    # 'accounts',
     'sponsor_app',
 ]
 
