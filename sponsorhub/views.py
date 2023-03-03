@@ -5,7 +5,8 @@ from .models import ForbesList
 
 
 def homepage(request):
-    return render(request, 'homepage.html')
+    forbes_lists = ForbesList.objects.all()
+    return render(request, 'homepage.html', {'forbes_lists': forbes_lists})
 
 
 def scrapeandsave(request):

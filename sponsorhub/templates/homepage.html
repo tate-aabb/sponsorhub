@@ -1,32 +1,65 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container col-xxl-8 px-4 py-5">
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-      <div class="col-10 col-sm-8 col-lg-6">
-          {% load static %}
-        <img src="{% static 'images/About.jpg' %}" class="d-block mx-lg-auto img-fluid" alt="About SponsorHub" width="700" height="500" loading="lazy">
-      </div>
-      <div class="col-lg-6">
-        <h1 class="display-5 fw-bold lh-1 mb-3">Transform Your Idea into Reality with SponsorHub</h1>
-        <p class="lead">Welcome to SponsorHub, the ultimate platform for aspiring entrepreneurs and innovative startups! We provide a dynamic space where you can share your business ideas and plans, and connect with potential investors who can help turn your dreams into reality.</p>
-      </div>
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                {% load static %}
+                <img src="{% static 'images/About.jpg' %}" class="d-block mx-lg-auto img-fluid" alt="About SponsorHub"
+                     width="700" height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold lh-1 mb-3">Transform Your Idea into Reality with SponsorHub</h1>
+                <p class="lead">Welcome to SponsorHub, the ultimate platform for aspiring entrepreneurs and innovative
+                    startups! We provide a dynamic space where you can share your business ideas and plans, and connect
+                    with potential investors who can help turn your dreams into reality.</p>
+            </div>
+        </div>
     </div>
-  </div>
     <div class="container px-4 py-5" id="featured-3">
-    <h2 class="pb-2 border-bottom">Who we are</h2>
-    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-      <div class="feature col">
-        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+        <h2 class="pb-2 border-bottom">Who we are</h2>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+            <div class="feature col">
+                <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                </div>
+                <h3 class="fs-2">Why SponsorHub</h3>
+                <p>Our community of sponsors is composed of experienced investors and successful entrepreneurs who are
+                    looking for promising projects to support. They are eager to share their knowledge, expertise, and
+                    resources with you, and help you navigate the complex world of startups. Join SponsorHub today and
+                    start your journey towards success!</p>
+            </div>
+            <div class="feature col">
+                <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                </div>
+                <h3 class="fs-2">Our Vision</h3>
+                <p>At SponsorHub, we believe that great ideas can come from anyone, regardless of their background or
+                    experience. That's why our platform is open to everyone who has a vision and a passion for
+                    entrepreneurship. We want to empower you to bring your ideas to life and create a better future for
+                    yourself and others.</p>
+            </div>
         </div>
-        <h3 class="fs-2">Why SponsorHub</h3>
-        <p>Our community of sponsors is composed of experienced investors and successful entrepreneurs who are looking for promising projects to support. They are eager to share their knowledge, expertise, and resources with you, and help you navigate the complex world of startups. Join SponsorHub today and start your journey towards success!</p>
-      </div>
-      <div class="feature col">
-        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-        </div>
-        <h3 class="fs-2">Our Vision</h3>
-        <p>At SponsorHub, we believe that great ideas can come from anyone, regardless of their background or experience. That's why our platform is open to everyone who has a vision and a passion for entrepreneurship. We want to empower you to bring your ideas to life and create a better future for yourself and others.</p>
-      </div>
     </div>
-</div>
+
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Net Worth</th>
+                <th>Age</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for forbes_list in forbes_lists %}
+                <div>
+                    <p>{{ forbes_list.rank }}</p>
+                    <p>{{ forbes_list.name }}</p>
+                    <p>{{ forbes_list.net_worth }}</p>
+                    <p>{{ forbes_list.age }}</p>
+                </div>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
 {% endblock content %}
