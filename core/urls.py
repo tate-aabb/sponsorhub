@@ -17,10 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-from django.contrib import admin
-from django.urls import path, include
-
-urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('sponsorhub.urls')),
     path('ideas/', include('ideas.urls')),
