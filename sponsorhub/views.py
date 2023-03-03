@@ -23,6 +23,7 @@ def scrapeandsave(request):
         net_worth = person.find('div', {'class': 'Table_netWorth__py4xM'}).text
         age = person.find('div', {'class': 'Table_age__CHhfQ'}).text
 
+        #Get scraped data, or create(srape)
         ForbesList.objects.get_or_create(rank=rank, name=name, net_worth=net_worth, age=age)
 
     return HttpResponse('Data successfully scraped')
