@@ -29,9 +29,9 @@ INSTALLED_APPS = [
 
     #new
     'sponsorhub',
-    # 'ideas',
+    'ideas',
     # 'accounts',
-    # 'sponsor_app',
+    'sponsor_app',
 ]
 
 MIDDLEWARE = [
