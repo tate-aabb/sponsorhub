@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http.response import HttpResponse
+from django.http import HttpResponseRedirect
 import requests
 from bs4 import BeautifulSoup
 from .models import ForbesList
+from .forms import ContactForm
 
 
 def homepage(request):
@@ -27,3 +29,15 @@ def scrapeandsave(request):
         ForbesList.objects.get_or_create(rank=rank, name=name, net_worth=net_worth, age=age)
 
     return HttpResponse('Data successfully scraped')
+
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('homepage')
+    else:
+        form = ContactForm(request.POST)
+
+    return render(request, 'Contact.html', {'form': form})
