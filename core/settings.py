@@ -29,8 +29,8 @@ INSTALLED_APPS = [
 
     #new
     'sponsorhub',
-    'ideas',
-    'accounts',
+    #'ideas',
+    #'accounts',
     'sponsor_app',
 ]
 

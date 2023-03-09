@@ -1,10 +1,25 @@
+{#{% extends 'base.html' %}#}
+{##}
+{#{% block content %}#}
+{#    {% for sponsorpost in object_list %}#}
+{#        <div class="post-entry">#}
+{#            <h2><a href="">{{ sponsorpost.title }}</a></h2>#}
+{#            <p>{{ sponsorpost.body }}</p>#}
+{#        </div>#}
+{#    {% endfor %}#}
+{#{% endblock content %}#}
+
 {% extends 'base.html' %}
 
 {% block content %}
-    {% for post in object_list %}
-        <div class="post-entry">
-            <h2><a href="">{{ post.title }}</a></h2>
-            <p>{{ post.body }}</p>
-        </div>
-    {% endfor %}
-{% endblock content %}
+  <h1>Список постов:</h1>
+  {% if form %}
+    <ul>
+      {% for post in form %}
+        <li>{{ post.title }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Постов нет.</p>
+  {% endif %}
+{% endblock %}
