@@ -12,7 +12,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1>Список постов:</h1>
+  <h1>Post List:</h1>
   {% if form %}
     <ul>
       {% for post in form %}
@@ -20,6 +20,6 @@
       {% endfor %}
     </ul>
   {% else %}
-    <p>Постов нет.</p>
+    <p>No posts.</p>
   {% endif %}
 {% endblock %}
