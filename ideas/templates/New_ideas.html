@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
 <div class="container">
     <div class="card mb-3">
         <div class="row g-0">
@@ -19,6 +14,10 @@
                     {% endif %}
                     <p class="card-text">
                     <form method="POST">
+                        <p>
+                            <label>About contributing</label>
+                            {{ form.About_contributing }}
+                        </p>
                          <p>
                             <label>Idea industry</label>
                             {{ form.Idea_industry }}
@@ -43,5 +42,4 @@
         </div>
     </div>
 </div>
-</body>
-</html>
+{% endblock content %}
