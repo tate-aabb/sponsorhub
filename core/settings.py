@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'ideas',
     # 'accounts',
     'sponsor_app',
+
 ]
 
 MIDDLEWARE = [

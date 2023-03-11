@@ -2,43 +2,43 @@
 <html>
 <head>
     <title>SponsorHub</title>
-    <link href="https://cdn.jsdelivr.net/npm/
-bootstrap@5.1.1/dist/css/bootstrap.min.css"
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
           rel="stylesheet" crossorigin="anonymous"/>
-    <script src="https://cdn.jsdelivr.net/npm/
-bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
             crossorigin="anonymous">
     </script>
     <meta name="viewport" content="width=device-width,
 initial-scale=1"/>
 </head>
-  <div class="container">
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-        <span class="fs-4">SponsorHub</span>
-      </a>
+<div class="container">
+    <header class="d-flex flex-wrap justify-content-center fw-bold py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <span class="fs-4">SponsorHub</span>
+        </a>
 
-      <ul class="nav nav-pills">
-        <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Login</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Sign up as Contributor</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Sign up as Sponsor</a></li>
-      </ul>
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="{% url 'homepage' %}" class="nav-link active" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Login</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Sign up as Contributor</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Sign up as Sponsor</a></li>
+            <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contacts</a></li>
+        </ul>
     </header>
-  </div>
+</div>
 
-    {% block content %}
-    {% endblock content %}
+{% block content %}
+{% endblock content %}
 
 <div class="container">
-  <footer class="py-3 my-4">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Login</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Sign up as Contributor</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Sign up as Sponsor</a></li>
-    </ul>
-    <p class="text-center text-muted">&copy; 2023 SponsorHub. Inc</p>
-  </footer>
+    <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="{% url 'homepage' %}" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Login</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Sign up as Contributor</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Sign up as Sponsor</a></li>
+            <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link px-2 text-muted">Contacts</a></li>
+        </ul>
+        <p class="text-center text-muted">Phone: +1-405-789-2615 | Email: info@sponsorhub.com | &copy; 2023 SponsorHub Inc.</p>
+    </footer>
 </div>
 </html>
