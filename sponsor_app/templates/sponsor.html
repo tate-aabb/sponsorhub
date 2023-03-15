@@ -1,14 +1,41 @@
-{% extends 'sponsor_base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
-  <h1>Business Ideas:</h1>
-  {% if form %}
-    <ul>
-      {% for post in form %}
-        <li>{{ post.title }}</li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>No ideas.</p>
-  {% endif %}
+{#  <h1>Business Ideas:</h1>#}
+{#  {% if form %}#}
+{#    <ul>#}
+{#      {% for post in form %}#}
+{#        <li>{{ post.title }}</li>#}
+{#      {% endfor %}#}
+{#    </ul>#}
+{#  {% else %}#}
+{#    <p>No ideas.</p>#}
+{#  {% endif %}#}
+    <div class="nav-right container">
+    <a href="{% url "sponsor_page" %}" style="float: right">+ New Post</a>
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-center">business name</th>
+                    <th scope="col" class="text-center">about sponsor</th>
+                    <th scope="col" class="text-center">business industry</th>
+                    <th scope="col" class="text-center">budget</th>
+                    <th scope="col" class="text-center">email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                    <td>{% for post in form  %}</td>
+{#                    <td>{{ posts.about_sponsor }}</td>#}
+{#                    <td>{{ posts.business_industry }}</td>#}
+{#                    <td class="text-center">{{ posts.budget }}</td>#}
+{#                    <td class="text-center" data-href-template="#"> {{ posts.email }}</td>#}
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}
