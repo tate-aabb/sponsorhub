@@ -17,21 +17,22 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col" class="text-center">business name</th>
-                    <th scope="col" class="text-center">about sponsor</th>
-                    <th scope="col" class="text-center">business industry</th>
-                    <th scope="col" class="text-center">budget</th>
-                    <th scope="col" class="text-center">email</th>
+                    <th scope="col" class="text-center"> About contributing</th>
+                    <th scope="col" class="text-center">Idea industry</th>
+                    <th scope="col" class="text-center">Idea text</th>
+                    <th scope="col" class="text-center">Budget</th>
+                    <th scope="col" class="text-center">Contact emai</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
 
-                    <td>{% for post in form  %}</td>
-{#                    <td>{{ posts.about_sponsor }}</td>#}
-{#                    <td>{{ posts.business_industry }}</td>#}
-{#                    <td class="text-center">{{ posts.budget }}</td>#}
-{#                    <td class="text-center" data-href-template="#"> {{ posts.email }}</td>#}
+                    <td>{% for post in form %}</td>
+                        <td>{{ posts.About_contributing }}</td>
+                        <td>{{ posts.Idea_industry }}</td>
+                        <td class="text-center">{{ posts.Idea_text }}</td>
+                        <td>{{ posts.Budget }}</td>
+                        <td class="text-center" data-href-template="#"> {{ posts.Contact_email }}</td>
                     {% endfor %}
                 </tr>
             </tbody>

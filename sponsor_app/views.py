@@ -5,6 +5,8 @@ from django.views.generic.edit import CreateView
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from .forms import SponsorForm
+from ideas.forms import Add_Ideas
+from ideas.models import IdeasModel
 
 
 class New_post(CreateView):
@@ -16,8 +18,9 @@ class New_post(CreateView):
         return reverse_lazy('sponsorapp:sponsor')
 
 
-class SponsorPage(TemplateView):
-    template_name = "sponsor.html"
+def for_sponsors(request):
+    Ideas = IdeasModel.objects.all()
+    return render(request, "sponsor.html", {"Ideas": Ideas})
 
 
 # @login_required
