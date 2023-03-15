@@ -1,10 +1,14 @@
-{% extends 'base.html' %}
+{% extends 'sponsor_base.html' %}
 
 {% block content %}
-    {% for post in object_list %}
-        <div class="post-entry">
-            <h2><a href="">{{ post.title }}</a></h2>
-            <p>{{ post.body }}</p>
-        </div>
-    {% endfor %}
-{% endblock content %}
+  <h1>Business Ideas:</h1>
+  {% if form %}
+    <ul>
+      {% for post in form %}
+        <li>{{ post.title }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No ideas.</p>
+  {% endif %}
+{% endblock %}
