@@ -9,3 +9,4 @@ class IdeasModel(models.Model):
     Budget = models.PositiveIntegerField()
     Contact_email = models.EmailField(default=0)
 # Create your models here.
+
