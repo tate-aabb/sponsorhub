@@ -9,7 +9,7 @@ class SponsorForm(forms.ModelForm):
         widgets = {
             "business_name": forms.TextInput(attrs={"class": "form-control", "style": "width:200px"}),
             "business_industry": forms.TextInput(attrs={"class": "form-control", "style": "width:200px"}),
-            "about_sponsor": Textarea(attrs={"style": "width:1600px; height: 300px"}),
+            "about_sponsor": Textarea(attrs={"style": "width:1255px; height: 300px"}),
             "budget": forms.TextInput(attrs={"class": "form-control"}),
             "email": forms.TextInput(attrs={"class": "form-control"}),
 

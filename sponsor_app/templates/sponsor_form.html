@@ -1,8 +1,55 @@
-{% extends 'base.html' %}
+{#{% extends 'base.html' %}#}
+{#{% block content %}#}
+{#    <h1>New post</h1>#}
+{#    <form action="" method="post">{% csrf_token %}#}
+{#        {{ form.as_p }}#}
+{#        <input type="submit" value="Save">#}
+{#    </form>#}
+{#{% endblock content %}#}
+{##}
+
+{% extends "base.html" %}
 {% block content %}
-    <h1>New post</h1>
-    <form action="" method="post">{% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Save">
-    </form>
+<div class="container">
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div>
+                <div class="card-body">
+                    <h5 class="card-title">Add Review for {{ movie.title }}</h5>
+                    {% if error %}
+                        <div class="alert alert-danger mt-3"
+                             role="alert">
+                            {{ error }}
+                        </div>
+                    {% endif %}
+                    <p class="card-text">
+                    <form method="POST">
+                        <p>
+                            <label>business name</label>
+                            {{ form.business_name }}
+                        </p>
+                         <p>
+                            <label>business_industry</label>
+                            {{ form.business_industry }}
+                         </p>
+                        <p>
+                            <label>about_sponsor</label>
+                            {{ form.about_sponsor }}
+                        </p>
+                        <p>
+                            <label>Budget</label>
+                            {{ form.budget }}
+                        </p>
+                        <p>
+                            <label>email</label>
+                            {{ form.email }}
+                        </p>
+                        <input type="submit">
+                    </form>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
