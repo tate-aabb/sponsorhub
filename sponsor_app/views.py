@@ -1,5 +1,5 @@
-from django.views.generic import ListView
-from .models import Post
+from django.views.generic import ListView, TemplateView
+# from .models import Post
 from django.views.generic.edit import CreateView
 
 from django.shortcuts import render
@@ -20,7 +20,6 @@ class SponsorCreateView(CreateView):
     template_name = 'sponsor_form.html'
     fields = ['business_name', 'about_sponsor', 'business_industry', 'budget', 'email']
 """
-class BlogListView(ListView):
-
-    model = Post
+class BlogListView(TemplateView):
+    # model = Post
     template_name = 'sponsor.html'
