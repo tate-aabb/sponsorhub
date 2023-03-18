@@ -1,5 +1,6 @@
 from django import forms
 from .models import Sponsorpost
+from django.contrib.auth import models
 
 class SponsorForm(forms.ModelForm):
     class Meta:
