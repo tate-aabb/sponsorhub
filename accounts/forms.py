@@ -7,6 +7,10 @@ from .models import CustomUser, Type
 
 
 
+class LoginForms(forms.Form):
+    email = forms.EmailField()
+    password = forms.CharField(widget=forms.PasswordInput)
+
 class CustomUserCreationForm1(UserCreationForm):
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Enter your password'}))
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Enter your password'}))
