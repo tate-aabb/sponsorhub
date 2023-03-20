@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Sponsorpost(models.Model):
     business_name = models.CharField(max_length=50)
     business_industry = models.CharField(max_length=100)
