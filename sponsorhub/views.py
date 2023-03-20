@@ -41,3 +41,4 @@ def contact(request):
         form = ContactForm(request.POST)
 
     return render(request, 'Contact.html', {'form': form})
+
