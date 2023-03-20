@@ -6,26 +6,31 @@ from django.views.generic import TemplateView, CreateView
 from .models import CustomUser
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from .forms import LoginForms
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.views import LoginView
 
 
 
-# class Login(TemplateView):
-#     template_name = "Login.html"
+
 def Login(request):
     if request.method == "POST":
-        email = request.POST.get("email")
-        password = request.POST.get("password")
-        user = authenticate(request, email=email, password=password)
-        if user is not None:
-            login(request, user)
-            if user.user_type == 0:
-                return redirect("sponsor")
-            elif user.user_type == 1:
-                return redirect("ideas")
+        forms = LoginForms(request.POST)
+        if forms.is_valid():
+            user = authenticate(request,
+                                email=forms.cleaned_data["email"],
+                                password=forms.cleaned_data["password"])
+            if user is not None:
+                login(request, user)
+                return redirect("homepage")
+            else:
+                forms.add_error(None, "Invalid username or password")
     else:
-        user = authenticate()
-    return render(request, "Login.html", {"form": user})
+        forms = LoginForms()
+    return render(request, "Login.html", {"forms": forms})
+
+
+
 def SignUp(request):
     if request.method == "POST":
         forms1 = CustomUserCreationForm1(request.POST)
