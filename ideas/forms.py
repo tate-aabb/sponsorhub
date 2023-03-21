@@ -6,9 +6,10 @@ from django import db
 class Add_Ideas(forms.ModelForm):
     class Meta:
         model = IdeasModel
-        fields = ("About_contributing", "Idea_industry", "Idea_text", "Budget", "Contact_email")
+        fields = ("Title", "About_contributor", "Idea_industry", "Idea_text", "Budget", "Contact_email")
         widgets = {
-            "About_contributing": forms.TextInput(attrs={"class": "form-control", "style": "width:1255px"}),
+            "Title": forms.TextInput(attrs={"class": "form-control", "style": "width:1255px"}),
+            "About_contributor": forms.TextInput(attrs={"class": "form-control", "style": "width:1255px"}),
             "Idea_industry": forms.TextInput(attrs={"class": "form-control", "style": "width:1255px"}),
             "Idea_text": Textarea(attrs={"style": "width: 1255px; height: 300px"}),
             "Budget": forms.TextInput(attrs={"class": "form-control"}),
