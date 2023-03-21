@@ -16,15 +16,16 @@
                 </tr>
             </thead>
             <tbody>
+            {% for posts in Sponsor %}
                 <tr>
-                    {% for posts in Sponsor %}
                     <td>{{ posts.business_name }}</td>
                     <td>{{ posts.about_sponsor }}</td>
                     <td>{{ posts.business_industry }}</td>
                     <td class="text-center">{{ posts.budget }}</td>
                     <td class="text-center" data-href-template="#"> {{ posts.email }}</td>
-                    {% endfor %}
+
                 </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>

@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path("", views.Login, name="Login"),
-    path("SingUpSponsor/", views.SignUp, name="SingUpSponsor"),
+    path("SingUp/", views.SignUp, name="SingUp"),
 ]
