@@ -9,6 +9,9 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from accounts.models import Type, CustomUser
 
 
+
+@login_required()
+@user_passes_test(lambda user: user.custom_user.get().user_type == Type.CONTRIBUTOR)
 def IdeasBlog(request):
     Sponsor = Sponsorpost.objects.all()
     return render(request, "ideas.html", {"Sponsor": Sponsor})
