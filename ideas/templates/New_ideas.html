@@ -5,7 +5,7 @@
         <div class="row g-0">
             <div>
                 <div class="card-body">
-                    <h5 class="card-title">Add Review for {{ movie.title }}</h5>
+                    <h5 class="card-title">Add your business idea</h5>
                     {% if error %}
                         <div class="alert alert-danger mt-3"
                              role="alert">
@@ -14,27 +14,12 @@
                     {% endif %}
                     <p class="card-text">
                     <form method="POST">
-                        <p>
-                            <label>About contributing</label>
-                            {{ form.About_contributing }}
-                        </p>
-                         <p>
-                            <label>Idea industry</label>
-                            {{ form.Idea_industry }}
-                         </p>
-                        <p>
-                            <label>Idea text</label>
-                            {{ form.Idea_text }}
-                        </p>
-                        <p>
-                            <label>Budget</label>
-                            {{ form.Budget }}
-                        </p>
-                        <p>
-                            <label>Contact email</label>
-                            {{ form.Contact_email }}
-                        </p>
-                        <input type="submit">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <buton type="submit"
+                            class="btn btn-primary">
+                            Submit
+                        </buton>
                     </form>
                     </p>
                 </div>
