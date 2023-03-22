@@ -1,11 +1,28 @@
 from django.views.generic import TemplateView
 from .models import IdeasModel
-from django.views.generic.edit import CreateView
+from django.shortcuts import render
+from django.views.generic.edit import CreateView, FormView
 from .forms import Add_Ideas
+from sponsor_app.models import Sponsorpost
+from sponsor_app.forms import SponsorForm
+from django.contrib.auth.decorators import login_required, user_passes_test
+from accounts.models import Type, CustomUser
 
 
-class IdeasPage(TemplateView):
+
+@login_required()
+@user_passes_test(lambda user: user.custom_user.get().user_type == Type.CONTRIBUTOR)
+def IdeasBlog(request):
+    Sponsor = Sponsorpost.objects.all()
+    return render(request, "ideas.html", {"Sponsor": Sponsor})
+
+
+
+class IdeasPage(FormView):
+    form_class = SponsorForm
     template_name = "ideas.html"
+
+
 
 class New_Ideas(CreateView):
     form_class = Add_Ideas
