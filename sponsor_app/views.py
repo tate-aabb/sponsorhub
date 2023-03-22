@@ -2,11 +2,13 @@ from django.views.generic import TemplateView
 from django.urls import reverse_lazy
 from .models import Sponsorpost
 from django.views.generic.edit import CreateView
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.shortcuts import render
 from .forms import SponsorForm
 from ideas.forms import Add_Ideas
 from ideas.models import IdeasModel
+from accounts.models import Type, CustomUser
+
 
 
 class New_post(CreateView):
@@ -18,6 +20,8 @@ class New_post(CreateView):
         return reverse_lazy('sponsorapp:sponsor')
 
 
+@login_required()
+@user_passes_test(lambda user: user.custom_user.get().user_type == Type.SPONSOR)
 def for_sponsors(request):
     Ideas = IdeasModel.objects.all()
     return render(request, "sponsor.html", {"Ideas": Ideas})
