@@ -8,5 +8,4 @@ urlpatterns = [
     path('ideas/', include('ideas.urls')),
     path('sponsors/', include('sponsor_app.urls')),
     path('accounts/', include('accounts.urls')),
-
 ]
