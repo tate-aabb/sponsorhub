@@ -23,29 +23,20 @@
         }
     </style>
     <div class="container">
-        <button><a href="{% url 'new' %}">Add A Business Ideas</a></button>
+        <button><a href="{% url 'new' %}">Add A Business Idea</a></button>
     </div>
     <br>
     <div class="container">
-        <form action="">
+        <form action="{% url 'search_idea' %}" method="get">
+            {% csrf_token %}
             <div class="mb-3">
                 <label class="form-label">Search for Idea:</label>
-                <input type="text" name="searchIdea"
-                       class="form-control"/>
-            </div>
-            <button type="submit" class="btn btn-primary">Search</button>
+                <input type="text" name="searchIdea" class="form-control"/><br>
+                <button type="submit" class="btn btn-primary">Search</button>
+                </div>
         </form>
-        <p>Searching for: {{ searchTerm }}</p>
-        {#            {% for idea in object_list %}#}
-        {#                    <div class="post-entry">#}
-        {#                        <h2><a href="{% url 'ideas_detail' idea.pk %}">{{ idea.Title }}</a></h2>#}
-        {#                        <p>{{ idea.Idea_text|truncatechars:100 }}</p>#}
-        {#                    </div>#}
-        {#                </div>#}
-        {#                </div>#}
-        {#            {% endfor %}#}
-    </div>
-    </div> <br>
+        <p>Searching for: {{ query }}</p>
+        <br><br>
     <div class="container">
         <h1>ALL BUSINESS IDEAS</h1><br>
         {% for idea in object_list %}

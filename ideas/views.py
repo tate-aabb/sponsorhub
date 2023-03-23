@@ -42,25 +42,12 @@ class IdeasDelete(DeleteView):
     success_url = reverse_lazy('ideas')
 
 
-def search(request):
-    searchTerm = request.GET.get('searchIdea')
-    if searchTerm:
-        ideas = IdeasModel.objects.filter(title__icontains=searchTerm)
-    else:
-        ideas = IdeasModel.objects.all()
-    return render(request, 'ideas.html',
-                  {'searchTerm': searchTerm, 'ideas': ideas})
+class IdeaSearch(ListView):
+    model = IdeasModel
+    template_name = 'ideas.html'
+    context_object_name = 'ideas'
 
+    def get_queryset(self):
+        query = self.request.GET.get('searchIdea')
+        return IdeasModel.objects.filter(Title__icontains=query)
 
-# def IdeasBlog(request):
-#     Sponsor = Sponsorpost.objects.all()
-#     return render(request, "ideas.html", {"Sponsor": Sponsor})
-
-
-
-# class IdeasPage(FormView):
-#     form_class = SponsorForm
-#     template_name = "ideas.html"
-
-
-#
