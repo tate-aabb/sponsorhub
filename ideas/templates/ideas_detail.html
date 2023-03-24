@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+        .post-entry {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        h4 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <div class="post-entry">
+        <h2 class="card-title">Title: {{ object.Title }}</h2>
+        <p class="card-text">About contributor: {{ object.About_contributor }}</p>
+        <p class="card-text">Idea industry: {{ object.Idea_industry }}</p>
+        <p class="card-text">Idea details: {{ object.Idea_text }}</p>
+        <p class="card-text">Budget: {{ object.Budget }}</p>
+        <p class="card-text">Contact e-mail: {{ object.Contact_email }}</p> <br>
+
+        {% if user.is_authenticated %}
+            <a class="btn btn-primary me-2"
+               href="{% url 'update' object.id %}">Update</a>
+            <a class="btn btn-danger"
+               href="{% url 'delete' object.id %}">Delete</a>
+        {% endif %}
+
+    </div>
+
+{% endblock content %}

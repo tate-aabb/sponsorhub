@@ -12,6 +12,6 @@ class Add_Ideas(forms.ModelForm):
             "About_contributor": forms.TextInput(attrs={"class": "form-control", "style": "width:1255px"}),
             "Idea_industry": forms.TextInput(attrs={"class": "form-control", "style": "width:1255px"}),
             "Idea_text": Textarea(attrs={"style": "width: 1255px; height: 300px"}),
-            "Budget": forms.TextInput(attrs={"class": "form-control"}),
+            "Budget(USD)": forms.TextInput(attrs={"class": "form-control"}),
             "Contact_email": forms.TextInput(attrs={"class": "form-control"}),
         }
