@@ -37,13 +37,14 @@
         <p class="card-text">Idea details: {{ object.Idea_text }}</p>
         <p class="card-text">Budget: {{ object.Budget }}</p>
         <p class="card-text">Contact e-mail: {{ object.Contact_email }}</p> <br>
-    </div>
-{#    {% if user.is_authenticated %}#}
-{#        <a class="btn btn-primary me-2"#}
-{#           href="{% url 'update' idea.pk %}">Update</a>#}
-{#        <a class="btn btn-danger"#}
-{#           href="{% url 'delete' idea.pk %}">Delete</a>#}
-{#    {% endif %}#}
 
+        {% if user.is_authenticated %}
+            <a class="btn btn-primary me-2"
+               href="{% url 'update' object.id %}">Update</a>
+            <a class="btn btn-danger"
+               href="{% url 'delete' object.id %}">Delete</a>
+        {% endif %}
+
+    </div>
 
 {% endblock content %}
