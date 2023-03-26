@@ -22,6 +22,7 @@
             margin: 10px 0;
         }
     </style>
+    {% if user.is_authenticated and custom_user == 1%}
     <div class="container">
         <button><a href="{% url 'new' %}">Add A Business Idea</a></button>
     </div>
@@ -45,4 +46,5 @@
             </div>
         {% endfor %}
     </div>
+    {% endif %}
 {% endblock content %}
