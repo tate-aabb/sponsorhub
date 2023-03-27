@@ -1,34 +1,50 @@
-
-{% extends "base.html" %}
-
+{% extends 'base.html' %}
 {% block content %}
-<div class="nav-right container">
-    <a href="{% url "new" %}" style="float: right">+ New Ideas</a>
+    <style>
+        .post-entry {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        h2 a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        h2 a:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 10px 0;
+        }
+    </style>
+    {% if user.is_authenticated and custom_user == 1%}
     <div class="container">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col" class="text-center">business name</th>
-                    <th scope="col" class="text-center">about sponsor</th>
-                    <th scope="col" class="text-center">business industry</th>
-                    <th scope="col" class="text-center">budget</th>
-                    <th scope="col" class="text-center">email</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for posts in Sponsor %}
-                <tr>
-                    <td>{{ posts.business_name }}</td>
-                    <td>{{ posts.about_sponsor }}</td>
-                    <td>{{ posts.business_industry }}</td>
-                    <td class="text-center">{{ posts.budget }}</td>
-                    <td class="text-center" data-href-template="#"> {{ posts.email }}</td>
-
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+        <button><a href="{% url 'new' %}">Add A Business Idea</a></button>
     </div>
-</div>
+    <br>
+    <div class="container">
+        <form action="{% url 'search_idea' %}" method="get">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">Search for Idea:</label>
+                <input type="text" name="searchIdea" class="form-control"/><br>
+                <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+        </form>
+        <br><br>
+    <div class="container">
+        <h1>ALL BUSINESS IDEAS</h1><br>
+        {% for idea in object_list %}
+            <div class="post-entry">
+                <h2><a href="{% url 'ideas_detail' idea.pk %}">{{ idea.Title }}</a></h2>
+                <p>{{ idea.Idea_text|truncatechars:100 }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
 {% endblock content %}
-

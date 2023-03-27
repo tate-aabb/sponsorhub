@@ -5,11 +5,19 @@ import requests
 from bs4 import BeautifulSoup
 from .models import ForbesList
 from .forms import ContactForm
+from accounts.models import CustomUser, User
 
 
 def homepage(request):
+    user = request.user
+    if user.is_authenticated:
+        custom_user = user.custom_user.get().user_type
+    else:
+        custom_user = None
     forbes_lists = ForbesList.objects.all()
-    return render(request, 'homepage.html', {'forbes_lists': forbes_lists})
+    context = {'forbes_lists': forbes_lists,
+               "custom_user": custom_user}
+    return render(request, 'homepage.html', context)
 
 
 def scrapeandsave(request):
@@ -32,6 +40,11 @@ def scrapeandsave(request):
 
 
 def contact(request):
+    user = request.user
+    if user.is_authenticated:
+        custom_user = user.custom_user.get().user_type
+    else:
+        custom_user = None
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -39,6 +52,7 @@ def contact(request):
             return redirect('homepage')
     else:
         form = ContactForm(request.POST)
-
-    return render(request, 'Contact.html', {'form': form})
+    context = {"form": form,
+               "custom_user": custom_user}
+    return render(request, 'Contact.html', context)
 

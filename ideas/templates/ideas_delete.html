@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if user.is_authenticated and custom_user == 1%}
+    <div class="container">
+    <h1 style="font-size: 24px; color: #333;">Do you want to delete "{{ object.Title }}"?</h1><br>
+        <input type="submit" value="Confirm"
+        style="background-color: #007bff; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+    </div>
+    {% endif %}
+{% endblock content %}

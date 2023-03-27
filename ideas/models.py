@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 class IdeasModel(models.Model):
     Title = models.CharField(max_length=150)
@@ -8,5 +9,10 @@ class IdeasModel(models.Model):
     Idea_text = models.TextField()
     Budget = models.PositiveIntegerField(default=0)
     Contact_email = models.EmailField()
-# Create your models here.
+
+    def __str__(self):
+        return self.Title
+
+    def get_absolute_url(self):
+        return reverse('ideas_detail', args=[str(self.id)])
 

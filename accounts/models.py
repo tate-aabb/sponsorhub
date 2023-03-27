@@ -6,6 +6,6 @@ class Type(models.IntegerChoices):
     CONTRIBUTOR = 1, "Contributor"
 
 class CustomUser(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='custom_user')
     user_type = models.IntegerField(choices=Type.choices, default=Type.SPONSOR)
 

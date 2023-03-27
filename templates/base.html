@@ -17,14 +17,19 @@ initial-scale=1"/>
         </a>
 
         <ul class="nav nav-pills">
-            <li class="nav-item"><a href="{% url 'homepage' %}" class="nav-link active" aria-current="page">Home</a></li>
             {% if user.is_authenticated %}
-            <li class="nav-item"><a class="nav-link">{{ user.username }}</a></li>
-            <li class="nav-item"><a href="{% url "logout" %}" class="nav-link">Logout</a></li>
+                <li class="nav-item"><a class="nav-link">Hi, {{ user.username }}</a></li>
+                <li class="nav-item"><a href="{% url "logout" %}" class="nav-link">(Logout)</a></li>
+                {% if custom_user == 1 %}
+                    <li class="nav-item"><a href="{% url "ideas" %}" class="nav-link">All Ideas</a></li>
+                {% else %}
+                    <li class="nav-item"><a href="{% url "sponsor" %}" class="nav-link">All Sponsors</a></li>
+                {% endif %}
+                <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contacts</a></li>
             {% else %}
-            <li class="nav-item"><a href="{% url "Login" %}" class="nav-link">Login</a></li>
-            <li class="nav-item"><a href="{% url "SingUp" %}" class="nav-link">Sign up</a></li>
-            <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contacts</a></li>
+                <li class="nav-item"><a href="{% url "Login" %}" class="nav-link">Login</a></li>
+                <li class="nav-item"><a href="{% url "SingUp" %}" class="nav-link">Sign up</a></li>
+                <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contacts</a></li>
             {% endif %}
         </ul>
     </header>
@@ -32,7 +37,6 @@ initial-scale=1"/>
 
 {% block content %}
 {% endblock content %}
-
 <div class="container">
     <footer class="py-3 my-4">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
