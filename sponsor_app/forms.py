@@ -5,7 +5,7 @@ from .models import Sponsorpost
 class SponsorForm(forms.ModelForm):
     class Meta:
         model = Sponsorpost
-        fields = ('business_name', 'business_industry', 'about_sponsor', 'budget', 'email')
+        fields = ('user', 'business_name', 'business_industry', 'about_sponsor', 'budget', 'email')
         widgets = {
             "business_name": forms.TextInput(attrs={"class": "form-control", "style": "width:200px"}),
             "business_industry": forms.TextInput(attrs={"class": "form-control", "style": "width:200px"}),

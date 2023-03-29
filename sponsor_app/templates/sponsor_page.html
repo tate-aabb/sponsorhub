@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>My Posts</h2>
+    <ul>
+    {% for post in posts %}
+        <li>{{ post.business_name }} - {{ post.business_industry }}</li>
+    {% empty %}
+        <li>No posts yet.</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
