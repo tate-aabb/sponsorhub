@@ -18,7 +18,11 @@ initial-scale=1"/>
 
         <ul class="nav nav-pills">
             {% if user.is_authenticated %}
-                <li class="nav-item"><a class="nav-link">Hi, {{ user.username }}</a></li>
+                {% if custom_user == 1 %}
+                    <li class="nav-item"><a class="nav-link" href="{% url "user_account" username=user.username %}">Hi, {{ user.username }}</a></li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url "Suser_accaunt" username=user.username %}">Hi, {{ user.username }}</a></li>
+                {% endif %}
                 <li class="nav-item"><a href="{% url "logout" %}" class="nav-link">(Logout)</a></li>
                 {% if custom_user == 1 %}
                     <li class="nav-item"><a href="{% url "ideas" %}" class="nav-link">All Ideas</a></li>
