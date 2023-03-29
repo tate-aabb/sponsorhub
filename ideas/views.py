@@ -52,7 +52,7 @@ def NewIdeas(request):
             post = form.save(commit=False)
             post.user = request.user
             post.save()
-            return redirect("ideas")
+            return redirect("user_account", username=request.user.username)
     else:
         form = Add_Ideas
     context = {

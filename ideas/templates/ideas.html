@@ -28,7 +28,7 @@
         <form action="{% url 'search_idea' %}" method="get">
             {% csrf_token %}
             <div class="mb-3">
-                <label class="form-label">Search for Idea:</label>
+                <label class="form-label">Search for Sponsor:</label>
                 <input type="text" name="searchSponsor" class="form-control"/><br>
                 <button type="submit" class="btn btn-primary">Search</button>
                 </div>
@@ -38,8 +38,8 @@
         <h1>ALL SPONSORS</h1><br>
         {% for idea in object_list %}
             <div class="post-entry">
-                <h2><a href="{% url 'derail_sponsor' idea.pk %}">{{ idea.Title }}</a></h2>
-                <p>{{ idea.About_contributor|truncatechars:100 }}</p>
+                <h2><a href="{% url 'derail_sponsor' idea.pk %}">{{ idea.business_name }}</a></h2>
+                <p>{{ idea.about_sponsor|truncatechars:100 }}</p>
             </div>
         {% endfor %}
     </div>
