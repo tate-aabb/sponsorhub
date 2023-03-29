@@ -35,7 +35,7 @@
         </form>
         <br><br>
     <div class="container">
-        <h1>ALL BUSINESSMEN</h1><br>
+        <h1>ALL SPONSORS</h1><br>
         {% for idea in object_list %}
             <div class="post-entry">
                 <h2><a href="{% url 'derail_sponsor' idea.pk %}">{{ idea.Title }}</a></h2>

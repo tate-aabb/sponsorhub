@@ -25,9 +25,9 @@ initial-scale=1"/>
                 {% endif %}
                 <li class="nav-item"><a href="{% url "logout" %}" class="nav-link">(Logout)</a></li>
                 {% if custom_user == 1 %}
-                    <li class="nav-item"><a href="{% url "ideas" %}" class="nav-link">All Ideas</a></li>
+                    <li class="nav-item"><a href="{% url "ideas" %}" class="nav-link">All Sponsors</a></li>
                 {% else %}
-                    <li class="nav-item"><a href="{% url "sponsor" %}" class="nav-link">All Sponsors</a></li>
+                    <li class="nav-item"><a href="{% url "sponsor" %}" class="nav-link">All Ideas</a></li>
                 {% endif %}
                 <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contacts</a></li>
             {% else %}
@@ -47,9 +47,9 @@ initial-scale=1"/>
             {% if user.is_authenticated %}
                 <li class="nav-item"><a href="{% url 'homepage' %}" class="nav-link px-2 text-muted">Home</a></li>
                 {% if custom_user == 1 %}
-                    <li class="nav-item"><a href="{% url "ideas" %}" class="nav-link">All Ideas</a></li>
+                    <li class="nav-item"><a href="{% url "ideas" %}" class="nav-link">All Sponsors</a></li>
                 {% else %}
-                    <li class="nav-item"><a href="{% url "sponsor" %}" class="nav-link">All Sponsors</a></li>
+                    <li class="nav-item"><a href="{% url "sponsor" %}" class="nav-link">All Ideas</a></li>
                 {% endif %}
                 <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link px-2 text-muted">Contacts</a></li>
             {% else %}
