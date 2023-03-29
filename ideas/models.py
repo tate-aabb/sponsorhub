@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 class IdeasModel(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="Contributor_post")
     Title = models.CharField(max_length=150)
     About_contributor = models.CharField(max_length=200)
     Idea_industry = models.CharField(max_length=100)

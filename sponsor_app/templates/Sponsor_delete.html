@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-    {% if user.is_authenticated and custom_user == 1%}
+    {% if user.is_authenticated and custom_user == 0%}
     <div class="container">
-    <h1 style="font-size: 24px; color: #333;">Do you want to delete "{{ object.Title }}"?</h1><br>
+    <h1 style="font-size: 24px; color: #333;">Do you want to delete "{{ object.business_name }}"?</h1><br>
         <form method="post">
             {% csrf_token %}
         <input type="submit" value="Confirm"
         style="background-color: #007bff; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
-        <a href="{% url "ideas" %}" style="background-color: #007bff; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">cancel</a>
+        <a href="{% url "sponsor" %}" style="background-color: #007bff; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">cancel</a>
         </form>
     </div>
     {% endif %}
